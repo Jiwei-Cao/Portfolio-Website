@@ -70,6 +70,13 @@ const Contact = () => {
                         </form>
                     </div>
                 </div>
+                <div className="info-map">
+                    Jiwei Cao, 
+                    <br />
+                    London, United Kingdowm
+                    <br />
+                    <span>jiweicao2006@gmail.com</span>
+                </div>
             </div>
             <Loader type="pacman" />
         </>
