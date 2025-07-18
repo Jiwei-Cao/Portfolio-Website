@@ -75,7 +75,7 @@ const Contact = () => {
                 <div className="info-map">
                     Jiwei Cao, 
                     <br />
-                    London, United Kingdowm
+                    London, United Kingdom
                     <br />
                     <span>jiweicao2006@gmail.com</span>
                 </div>
