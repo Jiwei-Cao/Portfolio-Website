@@ -7,7 +7,6 @@ import { faPython, faCss3, faJava, faHtml5, faAmazon, faReact } from '@fortaweso
 
 const About = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
-    const aboutArray = ['A', 'b', 'o', 'u', 't', ' ', 'm', 'e']
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -23,7 +22,7 @@ const About = () => {
                 <h1>
                     <AnimatedLetters
                         letterClass={letterClass}
-                        strArray={aboutArray}
+                        strArray={"About me".split("")}
                         idx={15}
                     />
                 </h1>

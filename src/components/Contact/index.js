@@ -9,7 +9,6 @@ import 'leaflet/dist/leaflet.css'
 const Contact = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
     const refForm = useRef()
-    const contactArray = ['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e']
 
     useEffect(() => {
             const timer = setTimeout(() => {
@@ -43,7 +42,7 @@ const Contact = () => {
             <div className="container contact-page">
                 <div className="text-zone">
                     <h1>
-                        <AnimatedLetters letterClass={letterClass} strArray={contactArray} idx={15}/>
+                        <AnimatedLetters letterClass={letterClass} strArray={"Contact me".split("")} idx={15}/>
                     </h1>
                     <p>
                         Thank you for your interest in reaching out! <br /><br />

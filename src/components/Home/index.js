@@ -8,8 +8,6 @@ import Loader from "react-loaders";
 
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
-    const nameArray = ['i', 'w', 'e', 'i']
-    const jobArray = ['s', 'o', 'f', 't', 'w', 'a', 'r', 'e', ' ', 'e', 'n', 'g', 'i', 'n', 'e', 'e', 'r', '.']
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -31,11 +29,11 @@ const Home = () => {
                         <span className={`${letterClass} _14`}>'m</span>
                         <img src={LogoTitle} alt="developer" />
                         <AnimatedLetters letterClass={letterClass}
-                        strArray={nameArray}
+                        strArray={"iwei".split("")}
                         idx={15} />
                         <br />
                         <AnimatedLetters letterClass={letterClass}
-                        strArray={jobArray}
+                        strArray={"software engineer".split("")}
                         idx={22} />
                     </h1>
                     <h2>Full-Stack Developer / Machine Learning Expert / Cloud Engineer</h2>
