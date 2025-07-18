@@ -5,6 +5,12 @@
             "title": "AI Waste Classifier",
             "Description": "ReactJS, PyTorch, PosgreSQL",
             "url": "https://recyclo-ai.vercel.app"
+        },
+        {
+            "cover": "/portfolio/Recyclo.png",
+            "title": "AI Waste Classifier",
+            "Description": "ReactJS, PyTorch, PosgreSQL",
+            "url": "https://recyclo-ai.vercel.app"
         }
     ]
 }

@@ -14,21 +14,21 @@ const Portfolio = () => {
             return () => clearTimeout(timer)
         }, [])
 
-        const renderPortfolio = (portfolio) => {
-            return (
-                <div className="images-container">
-                    {
-                        portfolio.map((port, idx) => {
-                            return (
-                                <div className="image-box" key={idx}>
-                                    <img src={port.cover} className="portfolio-image" alt="portfolio"/>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-            )
-        }
+    const renderPortfolio = (portfolio) => {
+        return (
+            <div className="images-container">
+                {
+                    portfolio.map((port, idx) => {
+                        return (
+                            <div className="image-box" key={idx}>
+                                <img src={port.cover} className="portfolio-image" alt="portfolio"/>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        )
+    }
 
     return (
         <>
