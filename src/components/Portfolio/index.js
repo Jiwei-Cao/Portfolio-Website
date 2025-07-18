@@ -11,7 +11,7 @@ const Portfolio = () => {
             <div className="container portfolio-page">
                 <h1 className="page-title">
                     <AnimatedLetters
-                        letter={letterClass}
+                        letterClass={letterClass}
                         strArray={"Portfolio".split("")} 
                         idx={15}
                     />
