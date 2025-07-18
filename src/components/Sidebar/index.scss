@@ -84,9 +84,17 @@
             }
         }
 
+        a.portfolio-link {
+            &:after {
+                content: 'PORTFOLIO';
+                font-size: 6px;
+            }
+        }
+
         a.contact-link {
             &:after {
-                content: 'CONTACT'
+                content: 'CONTACT';
+                font-size: 7px;
             }
         }
 
