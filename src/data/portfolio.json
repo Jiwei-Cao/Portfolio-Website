@@ -5,12 +5,6 @@
             "title": "Recyclo",
             "description": "ReactJS, PyTorch, PosgreSQL",
             "url": "https://recyclo-ai.vercel.app"
-        },
-        {
-            "cover": "/portfolio/Recyclo.png",
-            "title": "Recyclo",
-            "description": "ReactJS, PyTorch, PosgreSQL",
-            "url": "https://recyclo-ai.vercel.app"
         }
     ]
 }
