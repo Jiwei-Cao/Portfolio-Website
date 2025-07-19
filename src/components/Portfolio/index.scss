@@ -33,5 +33,19 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .content {
+            position: absolute;
+            width: 100%;
+            z-index: 3;
+            padding: 10px 20px;
+            transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+            background: linear-gradient(
+                180deg, 
+                rgba(0, 0, 0, 0.2) 0,
+                rgba(0, 0, 0, 1)
+            )
+            // bottom: -70px;
+        }
     }
 }
