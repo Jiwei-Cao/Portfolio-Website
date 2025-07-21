@@ -110,6 +110,15 @@
             left: -10px;
             box-sizing: border-box;
             margin: auto;
+        
+            svg {
+                position: absolute;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                left: 0;
+                margin: auto;
+            }
         }
     }
 }
