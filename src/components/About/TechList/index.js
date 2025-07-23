@@ -1,66 +1,30 @@
-import "./index.scss"; 
-import AnimatedLetters from "../AnimatedLetters"
-import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPython, faCss3, faJava, faHtml5, faAmazon, faReact } from "@fortawesome/free-brands-svg-icons";
-import Loader from "react-loaders";
-import LanguageList from "./LanguageList";
+import React, { useState } from "react";
+import ProgressBar from "../ProgressBar";
+import "./index.scss"
 
-const About = () => {
-    
-    const [letterClass, setLetterClass] = useState('text-animate');
+const TechList = () => {
+  const [techs] = useState([
+    { name: "ReactJS", progress: 100, className: "react-progress", years: 2 },
+    { name: "PostgreSQL", progress: 100, className: "postgre-progress", years: 1 },
+    { name: "Spring Boot", progress: 100, className: "springboot-progress", years: 1 },
+    { name: "Natural Language Processing", progress: 50, className: "nlp-progress", years: 1 },
+    { name: "Large Language Models", progress: 50, className: "llm-progress", years: 1 },
+    { name: "NodeJS", progress: 50, className: "node-progress", years: 1 },
+  ]);
 
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-          setLetterClass('text-animate-hover');
-        }, 3000);
-      
-        return () => {
-          clearTimeout(timerId);
-        };
-      }, []);
+  return (
+    <div>
+      <h2>Frameworks & Technologies</h2>
+      <ul>
+        {techs.map((tech, index) => (
+          <li key={index}>
+            <span>{tech.name}: {`${tech.years} years`}</span>
+            <ProgressBar progress={tech.progress} className={tech.className} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-    return (
-        <>
-            <div className = "container about-page"> 
-                <div className = "text-zone"> 
-                    <h1>
-                        <AnimatedLetters letterClass={letterClass}  strArray = {"About me".split("")} idx={15}/>
-                    </h1>
-                    <p>
-                    I am a very ambitious software developer with a unique background that has prepared me to be a team player who communicates effectively, faces problems analytically and has the technical skills to tackle any challenge. 
-                    <br/>
-                    <LanguageList />
-                    <Link to="/about/tech" className="flat-button">FRAMEWORKS/TECHNOLOGIES</Link>
-                    <Link to="/about/dev" className="flat-button">DEVELOPMENT TOOLS</Link>
-                    </p>
-                </div>
-                <div className = "stage-cube-cont">
-                    <div className = "cubespinner"> 
-                        <div className = "face1">
-                            <FontAwesomeIcon icon={faAmazon}/>
-                        </div>
-                        <div className = "face2">
-                            <FontAwesomeIcon icon={faHtml5} color="#F06529"/>
-                        </div>
-                        <div className = "face3">
-                            <FontAwesomeIcon icon={faCss3} color="#28A4D9"/>
-                        </div>
-                        <div className = "face4">
-                            <FontAwesomeIcon icon={faReact} color="#5ED4F4"/>
-                        </div>
-                        <div className = "face5">
-                            <FontAwesomeIcon icon={faPython} color="#ffd700"/>
-                        </div>
-                        <div className = "face6">
-                            <FontAwesomeIcon icon={faJava} color="#EC4D28"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <Loader type="pacman" />
-        </>
-    )
-}
-export default About
+export default TechList;
