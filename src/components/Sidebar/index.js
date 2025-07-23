@@ -5,7 +5,7 @@ import LogoS from '../../assets/images/logo-j.png'
 import LogoSubtitle from '../../assets/images/logo_sub.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faHome, faUser, faEnvelope, faSuitcase, faBars, faClose } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUser, faEnvelope, faSuitcase, faFolderOpen, faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 
 const Sidebar = () => {
     const [showNav, setShowNav] = useState(false);
@@ -23,8 +23,11 @@ const Sidebar = () => {
                 <NavLink exact="true" activeclassname="active" className="about-link" to="/about" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" className="portfolio-link" to="/portfolio" onClick={() => setShowNav(false)}>
+                <NavLink exact="true" activeclassname="active" className="work-link" to="/work" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faSuitcase} color="#4d4d4e" />
+                </NavLink>
+                <NavLink exact="true" activeclassname="active" className="portfolio-link" to="/portfolio" onClick={() => setShowNav(false)}>
+                    <FontAwesomeIcon icon={faFolderOpen} color="#4d4d4e" />
                 </NavLink>
                 <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />

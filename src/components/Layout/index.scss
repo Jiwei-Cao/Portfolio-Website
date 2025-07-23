@@ -38,7 +38,7 @@
     animation-delay: 1s;
 }
 
-.about-page, .portfolio-page, .contact-page {
+.about-page, .work-page, .portfolio-page, .contact-page {
     h1 {
         font-size: 53px;
         font-family: 'Coolvetica';
@@ -121,7 +121,7 @@
         height: auto;
         min-height: auto;
 
-        &.about-page, &.contact-page, &.portfolio-page {
+        &.about-page, &.work-page, &.contact-page, &.portfolio-page {
             .text-zone {
                 position: initial;
                 transform: none;

@@ -3,7 +3,6 @@ import AnimatedLetters from "../AnimatedLetters"
 import { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import Timeline from "./Timeline";
-import Logo1 from "./Logo1";
 
 const Work = () => {
     
@@ -21,15 +20,14 @@ const Work = () => {
 
     return (
         <>
-            <div className = "container work-page"> 
-                <div className = "text-zone"> 
+            <div className="container work-page"> 
+                <div className="text-zone"> 
                     <h1>
-                        <AnimatedLetters letterClass={letterClass}  strArray = {"Work Experience".split("")} idx={10}/>
+                        <AnimatedLetters letterClass={letterClass} strArray={"Work Experience".split("")} idx={10}/>
                     </h1>
                     <Timeline />
                 </div>
             </div>
-            <Logo1/>
             <Loader type="pacman" />
         </>
     )

@@ -85,6 +85,12 @@
             }
         }
 
+        a.work-link {
+            &:after {
+                content: 'WORK';
+            }
+        }
+
         a.portfolio-link {
             &:after {
                 content: 'PORTFOLIO';
