@@ -1,12 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+// Design System Variables
+$colors: (
+  bg-primary: #022c43,
+  bg-card: #0a3654,
+  bg-card-hover: #0f4263,
+  accent-primary: #ffd700,
+  accent-secondary: #64ffda,
+  text-primary: #e6f1ff,
+  text-secondary: #a8b2d1,
+  text-muted: #64748b,
+  border-subtle: rgba(100, 255, 218, 0.1),
+  shadow-glow: rgba(100, 255, 218, 0.15)
+);
 
+$spacing: (
+  xs: 0.5rem,
+  sm: 1rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 3rem,
+  xxl: 4rem
+);
+
+$breakpoints: (
+  mobile: 480px,
+  tablet: 768px,
+  desktop: 1024px
+);
+
+// Mixins
+@mixin for-tablet-up {
+  @media (min-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+
+// Timeline Container - Using CSS Grid for stable layout
 .timeline-container {
   position: relative;
-  padding: 2rem 0;
-  max-width: 1000px;
+  padding: map-get($spacing, xl) map-get($spacing, md);
+  max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  // Prevent horizontal overflow without forcing scrollbars
+  overflow: visible;
+  width: 100%;
+  box-sizing: border-box;
   
+  @include for-tablet-up {
+    // CSS Grid prevents layout shift during expansion
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: start;
+  }
+  
+  // Central vertical line
   &::before {
     content: '';
     position: absolute;
@@ -14,238 +61,349 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #e0e0e0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      map-get($colors, accent-primary) 10%,
+      map-get($colors, accent-primary) 90%,
+      transparent 100%
+    );
     
-    @media (min-width: 768px) {
+    @include for-tablet-up {
       left: 50%;
       transform: translateX(-50%);
     }
   }
 }
 
+// Timeline Item - Grid child
 .timeline-item {
   position: relative;
-  margin-bottom: 4rem;
-  padding-left: 80px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  margin-bottom: map-get($spacing, xxl);
+  padding-left: 60px;
   
-  @media (min-width: 768px) {
+  @include for-tablet-up {
     padding-left: 0;
-    width: 48%;
+    display: contents; // This is key! Makes children direct grid children
     
+    // For odd items (left side)
     &:nth-child(odd) {
-      padding-right: 70px;
-      text-align: right;
-      
-      .timeline-marker {
-        right: -11px;
-        left: auto;
+      .timeline-content {
+        grid-column: 1;
+        margin-right: map-get($spacing, lg);
       }
       
-      .date {
-        left: calc(100% + 90px);
-        right: auto;
-        text-align: left;
+      .timeline-marker {
+        grid-column: 2;
+        // Marker flush with right edge of left card
+        transform: translateX(50%);
+      }
+      
+      // Empty spacer for right column
+      &::after {
+        content: '';
+        grid-column: 3;
       }
     }
     
+    // For even items (right side)
     &:nth-child(even) {
-      margin-left: 52%;
-      padding-left: 70px;
+      // Empty spacer for left column
+      &::before {
+        content: '';
+        grid-column: 1;
+      }
       
       .timeline-marker {
-        left: -11px;
+        grid-column: 2;
+        // Marker flush with left edge of right card
+        transform: translateX(-50%);
       }
       
-      .date {
-        right: calc(100% + 90px);
-        left: auto;
-        text-align: right;
-      }
-    }
-  }
-  
-  &:hover {
-    .timeline-marker {
-      transform: scale(1.25);
-      background: #ffd700;
-      border-color: #ffd700;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-    }
-    
-    .timeline-content {
-      transform: translateY(-3px);
-      background: #ffd700;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-      border-color: #ffd700;
-      
-      h3, h4, p, .date, .more {
-        color: #1a1a1a;
-      }
-      
-      p b {
-        color: #1a1a1a;
-        font-weight: 700;
-      }
-      
-      .more {
-        color: #1a1a1a;
-        font-weight: 600;
-        
-        &:hover {
-          opacity: 0.7;
-        }
+      .timeline-content {
+        grid-column: 3;
+        margin-left: map-get($spacing, lg);
       }
     }
   }
 }
 
+// Timeline Marker - Positioned relative to grid
 .timeline-marker {
   position: absolute;
-  left: 19px;
-  top: 20px;
+  left: 18px;
+  top: 28px;
   width: 24px;
   height: 24px;
-  background: #ffffff;
-  border: 3px solid #3b82f6;
+  background: map-get($colors, bg-primary);
+  border: 3px solid map-get($colors, accent-primary);
   border-radius: 50%;
-  z-index: 1;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
-  @media (min-width: 768px) {
+  @include for-tablet-up {
+    position: relative;
     left: auto;
-    right: auto;
-    top: 24px;
+    top: 28px;
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    display: flex;
+    align-self: start;
+  }
+  
+  .timeline-item:hover & {
+    background: map-get($colors, accent-primary);
+    box-shadow: 0 0 0 8px rgba(255, 215, 0, 0.1);
   }
 }
 
+// Timeline Content - Isolated for smooth animations
 .timeline-content {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
+  background: map-get($colors, bg-card);
+  border: 1px solid map-get($colors, border-subtle);
+  border-radius: 16px;
+  padding: map-get($spacing, lg);
+  cursor: pointer;
+  position: relative;
+  // Ensure content doesn't overflow horizontally
+  overflow-x: hidden;
+  word-wrap: break-word;
+  // Remove ALL transitions from container to prevent layout shift
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
   
   h3 {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 map-get($spacing, xs) 0;
     font-size: 1.375rem;
     font-weight: 600;
-    color: #1f2937;
-    line-height: 1.4;
-    transition: color 0.3s ease;
+    color: map-get($colors, text-primary);
   }
   
   h4 {
-    margin: 0 0 1rem 0;
+    margin: 0 0 map-get($spacing, sm) 0;
     font-size: 1.05rem;
-    font-weight: 500;
-    color: #6b7280;
-    transition: color 0.3s ease;
+    color: map-get($colors, accent-secondary);
   }
+}
+
+// Description wrapper - KEY for smooth expansion
+.description-wrapper {
+  // Grid layout prevents margin collapse
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.expanded {
+    grid-template-rows: 1fr;
+  }
+}
+
+.description {
+  overflow: hidden;
+  min-height: 0; // Required for grid animation
   
   p {
-    margin: 0;
-    color: #4b5563;
+    margin: map-get($spacing, sm) 0 0 0;
+    color: map-get($colors, text-secondary);
     line-height: 1.7;
-    font-size: 0.975rem;
-    max-height: 0;
-    overflow: hidden;
+    font-size: 0.95rem;
     opacity: 0;
-    transition: all 0.4s ease;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
     
     b {
-      color: #1a1a1a;
+      color: map-get($colors, accent-primary);
       font-weight: 600;
     }
   }
   
-  &.expanded p {
-    max-height: 500px;
+  .expanded & p {
     opacity: 1;
-    margin-top: 1rem;
+    transform: translateY(0);
   }
 }
 
 .date {
   position: absolute;
-  top: 24px;
+  top: map-get($spacing, lg);
+  right: map-get($spacing, lg);
   font-size: 0.875rem;
   font-weight: 500;
-  color: #6b7280;
-  white-space: nowrap;
-  transition: color 0.3s ease;
+  color: map-get($colors, text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   
-  @media (max-width: 767px) {
-    position: relative;
-    top: 0;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-  
-  @media (min-width: 768px) {
-    width: 140px;
+  @media (max-width: map-get($breakpoints, tablet)) {
+    position: static;
+    display: inline-block;
+    margin-bottom: map-get($spacing, sm);
   }
 }
 
 .more {
-  display: inline-block;
-  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: map-get($spacing, xs);
+  margin-top: map-get($spacing, md);
   font-size: 0.875rem;
+  color: map-get($colors, accent-secondary);
   font-weight: 500;
-  color: #3b82f6;
-  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
   
   &::after {
-    content: ' →';
+    content: '→';
     display: inline-block;
     transition: transform 0.3s ease;
   }
   
-  .expanded & {
-    &::after {
-      content: ' ↑';
-    }
+  .expanded &::after {
+    content: '↓';
   }
   
   &:hover {
-    color: #2563eb;
+    color: map-get($colors, accent-primary);
   }
 }
 
-@media (max-width: 767px) {
+// Mobile layout - Clean vertical stack under 1000px
+@media (max-width: 1000px) {
   .timeline-container {
-    padding: 1.5rem 0;
+    display: block; // Reset grid layout
+    padding: map-get($spacing, lg) map-get($spacing, sm);
     max-width: 100%;
+    overflow: visible;
+    
+    // Move timeline line to the left
+    &::before {
+      left: 40px;
+      width: 2px;
+    }
   }
   
   .timeline-item {
-    margin-bottom: 2.5rem;
-    padding-left: 60px;
+    display: block; // Reset display: contents
+    position: relative;
+    padding-left: 80px; // Space for marker + line
+    padding-right: 0;
+    margin-bottom: map-get($spacing, xl);
+    width: 100%;
+    
+    // Reset all nth-child styles
+    &:nth-child(odd),
+    &:nth-child(even) {
+      margin-left: 0;
+      padding-left: 80px;
+      padding-right: 0;
+      
+      &::before,
+      &::after {
+        display: none; // Remove grid spacers
+      }
+      
+      .timeline-content {
+        grid-column: auto;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+        width: 100%;
+      }
+      
+      .timeline-marker {
+        grid-column: auto;
+        transform: none;
+      }
+      
+      .date {
+        left: auto;
+        right: auto;
+        text-align: left;
+      }
+    }
   }
   
   .timeline-marker {
-    width: 20px;
-    height: 20px;
-    left: 21px;
-    top: 16px;
+    // Position marker on the line
+    position: absolute;
+    left: 28px; // Center on 40px line position
+    top: 24px;
+    width: 24px;
+    height: 24px;
+    transform: none;
+    margin: 0;
   }
   
   .timeline-content {
-    padding: 1.5rem;
+    width: 100%;
+    max-width: none;
+    text-align: left;
+    
+    // Ensure consistent left-aligned layout
+    h3, h4, p {
+      text-align: left;
+    }
+  }
+  
+  .date {
+    // Move date inside the card for mobile
+    position: static;
+    display: block;
+    margin-bottom: map-get($spacing, sm);
+    text-align: left;
+    font-size: 0.875rem;
+    color: map-get($colors, text-muted);
+  }
+  
+  .more {
+    margin-top: map-get($spacing, sm);
+  }
+}
+
+// Extra small screens
+@media (max-width: 600px) {
+  .timeline-container {
+    padding: map-get($spacing, md) map-get($spacing, sm);
+    
+    &::before {
+      left: 30px; // Adjust line position
+    }
+  }
+  
+  .timeline-item {
+    padding-left: 60px; // Less padding on small screens
+    margin-bottom: map-get($spacing, lg);
+  }
+  
+  .timeline-marker {
+    left: 18px; // Adjust marker position
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
+  
+  .timeline-content {
+    padding: map-get($spacing, md);
     
     h3 {
       font-size: 1.25rem;
     }
     
     h4 {
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
     
-    p {
-      font-size: 0.925rem;
+    .description p {
+      font-size: 0.9rem;
     }
   }
 }

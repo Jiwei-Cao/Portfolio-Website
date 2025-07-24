@@ -4,6 +4,7 @@ import './index.scss';
 const Timeline = () => {
   const [events, setEvents] = useState([
     {
+      id: 'bright-network-2025',
       date: 'July 2025',
       title: 'Bright Network',
       company: 'Software Engineer Intern',
@@ -14,6 +15,7 @@ const Timeline = () => {
       ],
       expanded: false,
     },
+    
   ]);
 
   const handleItemClick = (index) => {
@@ -28,34 +30,46 @@ const Timeline = () => {
     });
   };
 
+  const handleKeyDown = (e, index) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleItemClick(index);
+    }
+  };
+
   return (
-    <section className="timeline-container">
+    <section className="timeline-container" role="region" aria-label="Work Experience Timeline">
       {events.map((event, index) => (
         <article
           className={`timeline-item ${event.expanded ? 'expanded' : ''}`}
-          key={index}
+          key={event.id}
           onClick={() => handleItemClick(index)}
+          onKeyDown={(e) => handleKeyDown(e, index)}
           role="button"
           tabIndex={0}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              handleItemClick(index);
-            }
-          }}
+          aria-expanded={event.expanded}
+          aria-label={`${event.title} at ${event.company}, ${event.date}. Click to ${event.expanded ? 'collapse' : 'expand'} details.`}
         >
-          <div className="timeline-marker"></div>
+          <div className="timeline-marker" aria-hidden="true"></div>
           <div className={`timeline-content ${event.expanded ? 'expanded' : ''}`}>
-            <span className="date">{event.date}</span>
+            <time className="date" dateTime={event.date}>
+              {event.date}
+            </time>
             <h3>{event.title}</h3>
             <h4>{event.company}</h4>
-            {event.expanded && (
-              <div className="description">
+            <div className={`description-wrapper ${event.expanded ? 'expanded' : ''}`}>
+              <div 
+                className="description" 
+                role="region" 
+                aria-live="polite"
+                aria-label="Job description details"
+              >
                 {event.description.map((desc, descIndex) => (
                   <p key={descIndex} dangerouslySetInnerHTML={{ __html: desc }} />
                 ))}
               </div>
-            )}
-            <span className={`more ${event.expanded ? 'expanded' : ''}`}>
+            </div>
+            <span className={`more ${event.expanded ? 'expanded' : ''}`} aria-hidden="true">
               {event.expanded ? 'Show less' : 'Show more'}
             </span>
           </div>

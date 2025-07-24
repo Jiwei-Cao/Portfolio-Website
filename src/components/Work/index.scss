@@ -1,7 +1,11 @@
 .container.work-page {
-  padding-left: 120px;
-  padding-top: 20%;
-  padding-right: 40px;
+  padding-left: 0.1%;
+  padding-top: 23%;
+  padding-right: 1%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+  box-sizing: border-box;
   
   .text-zone {
     position: relative;
@@ -14,250 +18,16 @@
   }
 }
 
-.timeline-container {
-  position: relative;
-  padding: 3rem 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    left: 35px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, #ffd700, #ffed4e);
-    
-    @media (min-width: 768px) {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 90px;
-  margin-bottom: 5rem;
-  cursor: pointer;
-  
-  @media (min-width: 768px) {
-    padding-left: 0;
-    width: 55%;
-    
-    &:nth-child(odd) {
-      padding-right: 80px;
-      
-      .timeline-marker {
-        right: -15px;
-        left: auto;
-      }
-      
-      .date {
-        left: calc(100% + 100px);
-        right: auto;
-      }
-    }
-    
-    &:nth-child(even) {
-      margin-left: 45%;
-      padding-left: 80px;
-      
-      .timeline-marker {
-        left: -15px;
-      }
-      
-      .date {
-        right: calc(100% + 100px);
-        left: auto;
-        text-align: right;
-      }
-    }
-  }
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.timeline-marker {
-  position: absolute;
-  left: 24px;
-  top: 5px;
-  width: 26px;
-  height: 26px;
-  background: #1d1d1d;
-  border: 4px solid #ffd700;
-  border-radius: 50%;
-  z-index: 1;
-  transition: all 0.3s ease;
-  
-  @media (min-width: 768px) {
-    left: auto;
-  }
-  
-  .timeline-item:hover & {
-    transform: scale(1.2);
-    background: #ffd700;
-  }
-}
-
-.timeline-content {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 2rem 2.5rem;
-  transition: all 0.3s ease;
-  position: relative;
-  
-  &:hover {
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  }
-  
-  .date {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    font-size: 0.875rem;
-    color: #ffd700;
-    font-weight: 500;
-    
-    @media (min-width: 768px) {
-      position: absolute;
-      top: 5px;
-      width: 150px;
-    }
-    
-    @media (max-width: 767px) {
-      position: relative;
-      top: 0;
-      right: 0;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-  }
-  
-  h3 {
-    margin: 0 0 0.25rem 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-    
-    @media (max-width: 767px) {
-      font-size: 1.25rem;
-      margin-top: 1.5rem;
-    }
-  }
-  
-  h4 {
-    margin: 0 0 1rem 0;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #8892b0;
-  }
-  
-  .description {
-    overflow: hidden;
-    animation: slideDown 0.4s ease forwards;
-    
-    p {
-      margin: 0 0 0.75rem 0;
-      color: #a8b2d1;
-      line-height: 1.7;
-      font-size: 0.95rem;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
-      
-      b {
-        color: #ffd700;
-        font-weight: 500;
-      }
-    }
-  }
-  
-  .more {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    color: #ffd700;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    
-    &::after {
-      content: ' →';
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-    
-    &.expanded::after {
-      content: ' ↑';
-    }
-    
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-}
-
-@keyframes slideDown {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 500px;
-    opacity: 1;
-  }
-}
-
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   .container.work-page {
-    padding-left: 80px;
-    padding-right: 30px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1%;
     
     .text-zone {
       h1 {
         font-size: 40px;
       }
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .container.work-page {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 40px;
-    
-    .text-zone {
-      h1 {
-        font-size: 35px;
-        margin-bottom: 2rem;
-      }
-    }
-  }
-  
-  .timeline-container {
-    padding: 1.5rem 0;
-  }
-  
-  .timeline-item {
-    padding-left: 70px;
-    margin-bottom: 3rem;
-  }
-  
-  .timeline-marker {
-    width: 20px;
-    height: 20px;
-    left: 26px;
-  }
-  
-  .timeline-content {
-    padding: 1.5rem;
   }
 }
