@@ -1,96 +1,108 @@
-# Jiwei's Portfolio Website
+# 💼 Jiwei's Portfolio Website
 
-A modern, animated portfolio website built with React, SCSS, and React Router.  
-Showcases projects, skills, work experience, and contact information.
+A modern, animated portfolio website built with React and SCSS.  
+Showcases projects, skills, experience, and contact information in a clean, responsive UI.
 
-## Features
+## 🛠 Built With
 
-- **Animated Landing Page:** Eye-catching intro with animated letters and logo.
-- **Responsive Design:** Fully responsive for desktop and mobile devices.
-- **Project Portfolio:** Displays project cards with images, descriptions, and links.
-- **About Section:** Highlights languages, frameworks, and development tools with animated progress bars.
-- **Work Timeline:** Interactive, expandable timeline for work experience.
-- **Contact Form:** EmailJS-powered contact form with map integration.
-- **Sidebar Navigation:** Persistent sidebar with navigation and social links.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)  
+[![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)  
+[![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/)  
+[![FontAwesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)](https://fontawesome.com/)  
+[![EmailJS](https://img.shields.io/badge/EmailJS-3730A3?style=for-the-badge)](https://www.emailjs.com/)  
+[![React Leaflet](https://img.shields.io/badge/React_Leaflet-00A877?style=for-the-badge&logo=leaflet&logoColor=white)](https://react-leaflet.js.org/)  
+[![Loaders.css](https://img.shields.io/badge/Loaders.css-FF6F61?style=for-the-badge)](https://github.com/ConnorAtherton/loaders.css)
 
-## Tech Stack
+## 🔗 Live Demo
 
-- [React](https://reactjs.org/)
-- [React Router](https://reactrouter.com/)
-- [SCSS](https://sass-lang.com/)
-- [FontAwesome](https://fontawesome.com/)
-- [EmailJS](https://www.emailjs.com/)
-- [React Leaflet](https://react-leaflet.js.org/) (for maps)
-- [Loaders.css](https://github.com/ConnorAtherton/loaders.css) (for animated loaders)
+[https://jiwei-portfolio.vercel.app](https://jiwei-portfolio.vercel.app)
 
-## Getting Started
+## 🚀 Getting Started
 
-### Prerequisites
+This section explains how to run the portfolio site locally.
 
-- Node.js (v16+ recommended)
-- npm or yarn
+### 🧰 Prerequisites
 
-### Installation
+- Node.js (v16+ recommended)  
+- npm or yarn  
 
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/jiwei-cao/portfolio-website.git
-   cd portfolio-website
-   ```
+## 🛠️ Installation
 
-2. **Install dependencies:**
-   ```sh
-   npm install
-   # or
-   yarn install
-   ```
+### 1. Clone the repo
+```bash
+git clone https://github.com/jiwei-cao/portfolio-website.git
+cd portfolio-website
+2. Install dependencies
+bash
+Copy
+Edit
+npm install
+# or
+yarn install
+3. Start the development server
+bash
+Copy
+Edit
+npm start
+# or
+yarn start
+4. Open in your browser
+http://localhost:3000
 
-3. **Start the development server:**
-   ```sh
-   npm start
-   # or
-   yarn start
-   ```
+🧪 Features
+Animated landing page with interactive logo
 
-4. **Open in your browser:**
-   ```
-   http://localhost:3000
-   ```
+Responsive layout for desktop and mobile
 
-## Project Structure
+Dynamic portfolio project cards
 
-```
-src/
-  components/
-    About/
-    AnimatedLetters/
-    Contact/
-    Home/
-    Layout/
-    Portfolio/
-    Sidebar/
-    Work/
-  assets/
-    fonts/
-    images/
-  data/
-    portfolio.json
-  App.js
-  App.scss
-  ...
-```
+Work experience timeline with expand/collapse
 
-## Customization
+Skills and tools with animated progress bars
 
-- **Projects:** Edit `src/data/portfolio.json` to add or update portfolio projects.
-- **Contact Form:** Update EmailJS credentials in `src/components/Contact/index.js`.
-- **Profile Info:** Edit text in `src/components/Home/`, `About/`, and `Work/`.
+Sidebar with navigation and social icons
 
-## License
+Contact form via EmailJS with map integration
 
-This project is for personal portfolio use.  
-Feel free to fork and adapt for your own portfolio!
+🗂️ Project Structure
+pgsql
+Copy
+Edit
+portfolio-website/
+├── public/
+│   └── index.html, favicon, assets
+├── src/
+│   ├── components/
+│   │   ├── About/
+│   │   ├── AnimatedLetters/
+│   │   ├── Contact/
+│   │   ├── Home/
+│   │   ├── Layout/
+│   │   ├── Portfolio/
+│   │   ├── Sidebar/
+│   │   └── Work/
+│   ├── assets/
+│   │   ├── fonts/
+│   │   └── images/
+│   ├── data/
+│   │   └── portfolio.json
+│   ├── App.js
+│   ├── App.scss
+│   └── index.js
+├── package.json
+└── README.md
+⚙️ Customization
+Projects:
+Edit src/data/portfolio.json to add or modify portfolio projects.
 
----
+Contact Form:
+Set your EmailJS service ID, template ID, and public key in src/components/Contact/index.js.
 
-**Created by Jiwei Cao**
+Profile Info:
+Edit text and content in src/components/Home/, About/, and Work/.
+
+📄 License
+This project is for personal portfolio use.
+You’re welcome to fork and modify it for your own portfolio.
+
+Created by Jiwei Cao
