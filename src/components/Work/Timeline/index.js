@@ -9,9 +9,9 @@ const Timeline = () => {
       title: 'Bright Network',
       company: 'Software Engineer Intern',
       description: [
-        'Built a <b>Java-based bot detection tool</b> that parses server logs using heuristics (e.g., bad user-agent, frequency, missing resources)',
-        'Automated detection of ~<b>9%</b> non-human traffic, reducing server load and improving site reliability',
-        'Applied <b>Java collections</b>, <b>regex</b>, and <b>time-based filtering</b> for high-throughput log analysis',
+        'Developed a <b>Java tool</b> to detect bots by analysing server logs with heuristic checks (e.g. invalid user-agents, request frequency, missing assets)',
+        'Identified and filtered out ~<b>12%</b> of non-human traffic, improving backend efficiency and site stability',
+        'Engineered efficient log processing using <b>Java streams</b>, <b>pattern matching</b>, and <b>time-window filters</b> for scalable analysis',
       ],
       expanded: false,
     },
