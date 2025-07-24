@@ -109,6 +109,29 @@
             color: #fff;
         }
     }
+
+    .images-container {
+        .image-box {
+        animation: slideInFromBottom 2s forwards;
+        opacity: 0;
+        }
+    
+        @for $i from 1 through 10 {
+        .image-box:nth-child(#{$i}) {
+            animation-delay: #{$i}s;
+        }
+        }
+    }
+    
+    @keyframes slideInFromBottom {
+        from {
+        transform: translateY(100%);
+        }
+        to {
+        transform: translateY(0);
+        opacity: 1;
+        }
+    }
 }
 
 @media screen and (max-width: 1000px) {
