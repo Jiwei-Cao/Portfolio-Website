@@ -84,7 +84,7 @@ $breakpoints: (
   
   @include for-tablet-up {
     padding-left: 0;
-    display: contents; // This is key! Makes children direct grid children
+    display: contents; 
     
     // For odd items (left side)
     &:nth-child(odd) {
@@ -158,7 +158,7 @@ $breakpoints: (
   }
 }
 
-// Timeline Content - Isolated for smooth animations
+// Timeline Content 
 .timeline-content {
   background: map-get($colors, bg-card);
   border: 1px solid map-get($colors, border-subtle);
@@ -169,7 +169,7 @@ $breakpoints: (
   // Ensure content doesn't overflow horizontally
   overflow-x: hidden;
   word-wrap: break-word;
-  // Remove ALL transitions from container to prevent layout shift
+  // Remove all transitions from container to prevent layout shift
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
@@ -191,7 +191,7 @@ $breakpoints: (
   }
 }
 
-// Description wrapper - KEY for smooth expansion
+// Description wrapper 
 .description-wrapper {
   // Grid layout prevents margin collapse
   display: grid;
@@ -276,7 +276,7 @@ $breakpoints: (
   }
 }
 
-// Mobile layout - Clean vertical stack under 1000px
+// Mobile layout 
 @media (max-width: 1000px) {
   .timeline-container {
     display: block; // Reset grid layout
@@ -292,9 +292,9 @@ $breakpoints: (
   }
   
   .timeline-item {
-    display: block; // Reset display: contents
+    display: block; 
     position: relative;
-    padding-left: 80px; // Space for marker + line
+    padding-left: 80px; 
     padding-right: 0;
     margin-bottom: map-get($spacing, xl);
     width: 100%;
