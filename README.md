@@ -34,7 +34,7 @@ Showcases projects, skills, work experience, and contact information.
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/portfolio-website.git
+   git clone https://github.com/jiwei-cao/portfolio-website.git
    cd portfolio-website
    ```
 
