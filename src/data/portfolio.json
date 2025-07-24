@@ -3,8 +3,14 @@
         {
             "cover": "/portfolio/Recyclo.png",
             "title": "Recyclo",
-            "description": "ReactJS, PyTorch, PosgreSQL",
+            "description": "ReactJS, PyTorch, PostgreSQL",
             "url": "https://recyclo-ai.vercel.app"
+        },
+        {
+            "cover": "/portfolio/Verity.png",
+            "title": "Verity",
+            "description": "TypeScript, Next.js, Anthropic API",
+            "url": "https://verity-theta.vercel.app/"
         }
     ]
 }
