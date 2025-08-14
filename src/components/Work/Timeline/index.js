@@ -4,18 +4,18 @@ import './index.scss';
 const Timeline = () => {
   const [events, setEvents] = useState([
     {
-      id: 'bright-network-2025',
+      id: 'mosaic-ai-2025',
       date: 'July 2025',
-      title: 'Bright Network',
+      title: 'Mosaic AI',
       company: 'Software Engineer Intern',
       description: [
-        'Developed a <b>Java tool</b> to detect bots by analysing server logs with heuristic checks (e.g. invalid user-agents, request frequency, missing assets)',
-        'Identified and filtered out ~<b>12%</b> of non-human traffic, improving backend efficiency and site stability',
-        'Engineered efficient log processing using <b>Java streams</b>, <b>pattern matching</b>, and <b>time-window filters</b> for scalable analysis',
+        'Designed and implemented an AI-driven matchmaking system using user trait embeddings and cosine similarity, supporting 10,000+ profiles for personality-based pairing',
+        'Integrated Nakama real-time chat with the matchmaking pipeline, enabling seamless match-to-chat transitions for active users',
+        'Developed a batch matchmaking service using a greedy pairing algorithm and similarity thresholds to automate large-scale pairing',
+        'Built a manual embedding CLI tool in Node.js to generate test accounts, accelerating QA cycles and enabling frontend team testing without database access'
       ],
       expanded: false,
     },
-    
   ]);
 
   const handleItemClick = (index) => {
