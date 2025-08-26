@@ -9,10 +9,10 @@ const Timeline = () => {
       title: 'Mosaic AI',
       company: 'Software Engineer Intern',
       description: [
-        'Designed and implemented an AI-driven matchmaking system using user trait embeddings and cosine similarity, supporting 10,000+ profiles for personality-based pairing',
-        'Integrated Nakama real-time chat with the matchmaking pipeline, enabling seamless match-to-chat transitions for active users',
-        'Developed a batch matchmaking service using a greedy pairing algorithm and similarity thresholds to automate large-scale pairing',
-        'Built a manual embedding CLI tool in Node.js to generate test accounts, accelerating QA cycles and enabling frontend team testing without database access'
+        'Built a matchmaking system that paired 1,000+ user profiles using cosine similarity on Pinecone embeddings, tested at scale with thousands of match attempts.',
+        'Used AWS S3 to store chat-derived personality traits and integrated Cognito (via Amplify) for secure user authentication and profile management.',
+        'Integrated Nakama for real-time chatting and developed the batch matchmaking service with a greedy algorithm and similarity thresholds to pair thousands of users reliably.',
+        'Shifted authentication to Next.js middleware, removing loading screens and cutting navigation latency by 90%.'
       ],
       expanded: false,
     },
